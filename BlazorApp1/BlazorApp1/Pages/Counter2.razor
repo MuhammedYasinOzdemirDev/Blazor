@@ -1,0 +1,19 @@
+﻿@page "/sayiarttirma"
+@inherits Counter2Base// miras veririz özellikleri alir bu dosya code altinda c# classi gibi davranir
+@layout MainLayout2 // Layout değiştiririr default layout app.razor da tanımlanır
+<h3>Counter2</h3>
+<PageTitle>Counter 2</PageTitle><!--Ana sayfa baslik tanimlariz-->
+<p role="status">Current count: @currentCount</p><!--current coun ddeğikene erişim şağlar-->
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button><!--egerki onclick basinda başınaki işareti yoksa javascript metedu çalışır-->
+<br />
+<Alert Description="@currentCount.ToString()" Type="primary"/>
+<!--
+code {bu kodlara kendi tanimladiğim classtanda erişebiliriz
+    private int currentCount = 0;//varsayilan değer atanir fakat diğer sayfalardan erişip farklı değerle başlatılabilir
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}-->

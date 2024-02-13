@@ -1,0 +1,12 @@
+﻿<h3 style="@style">Alert</h3>
+<input class="form-control" @bind="@style"/><!--inbuttaki değeri inputtan odak kesildimi bind değiştirir-->
+<div class="alert alert-@Type">
+    @Description
+</div>
+@code {
+    private string style="font-size:50px";//sadece bu alert dosyasından erişilebilir
+    [Parameter]//Paremetre almasını sağlar public olmalı ve paremeeter tanımlanmalı ve default değer atanabilir
+    public string Description { get; set; } = "Hatalı...";
+    [Parameter]
+    public string Type { get; set; } = "danger";
+}
