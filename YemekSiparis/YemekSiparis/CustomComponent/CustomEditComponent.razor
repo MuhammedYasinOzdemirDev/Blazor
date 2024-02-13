@@ -1,0 +1,24 @@
+﻿@using YemekSiparis.Pages;
+<button class="btn btn-@color" @onclick="HandleClick">
+    <span class="fa fa-@icon"></span>
+    @Text
+</button>
+
+@code {
+    //dışarıdan paremtre alarak buton ousturulur
+    [Parameter]
+    public string Text { get; set; }
+    [Parameter]
+    public string color { get; set; } = "danger";//default değer atanır
+    [Parameter]
+    public string icon { get; set; } = "pencil";
+    [CascadingParameter] public IModalService Modal { get; set; }
+       public   void HandleClick()
+    {
+
+       
+                     Modal.Show<Counter>("Sayaç Modalı");//razor sayfası çağırır pages içincdeki counterı
+       
+
+    }
+}

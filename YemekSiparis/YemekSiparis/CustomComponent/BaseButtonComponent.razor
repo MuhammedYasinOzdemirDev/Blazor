@@ -1,0 +1,19 @@
+﻿
+
+@code {//Ana sınıf olusturulur normal classda olusturulabiir boyle de 
+    //amac kod tekrarını onleyip buttonları özelleştirmek
+    [Parameter]
+    public string text { get; set; }
+     [Parameter]
+    public string color { get; set; }
+     [Parameter]
+    public string icon { get; set; }
+    [Parameter]
+    public bool IsSmall { get; set; }
+    [Parameter]
+    public bool IsOutline { get; set; }
+   
+    public bool IsBusy { get; set; }//buuton basılımı anlamı
+    [Parameter]
+    public string IsBusyText { get; set; }//değişek text
+}

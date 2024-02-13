@@ -1,0 +1,19 @@
+﻿@using YemekSiparis.CustomComponent.ModalComponents;
+@using YemekSiparis.Pages;
+@using YemekSiparis.Utils;
+@inherits BaseButtonComponent//altındak paremetler gelir code blogu gorevi gorur
+
+<button class="btn @(IsSmall ?"btn-sm":"") btn-@(IsOutline?"-outline":"") btn-@color" disabled="@IsBusy" @onclick="@OnClick">
+    <span class="fa fa-@icon"></span>
+    @if (IsBusy)
+    {
+        <span class="spinner-border spinner-border-sm mr-1"></span>
+    }
+    @text
+</button>
+
+@code{
+
+    [Parameter]
+    public EventCallback OnClick { get; set; }
+}

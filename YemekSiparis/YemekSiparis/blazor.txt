@@ -1,0 +1,21 @@
+Modal
+Uyarı penceresidir
+Install-Package Blazored.Modal
+denerek paket pencerisinden eklenir
+Client tarafında program.cs ye builder.Services.AddBlazoredModal(); service eklenir
+iöportslar eklenir
+@using Blazored.Modal
+@using Blazored.Modal.Services
+app.razor a
+<CascadingBlazoredModal>
+    <Router AppAssembly="typeof(Program).Assembly">
+        ...
+    </Router>
+</CascadingBlazoredModal>
+kullanmak istediğimiz sayfa da Modal alırız paremetre olaral
+[CascadingParameter] public IModalService Modal { get; set; } = default!;
+ModalManager yazılabilir
+componentte kullanmak için injecct edilmesi lazım
+ [Inject]
+    ModalManager ModalManager { get; set; }
+    ve servis eklenmeli builder.Services.AddScoped<ModalManager>();

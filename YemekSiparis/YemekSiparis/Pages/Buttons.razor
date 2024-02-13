@@ -1,0 +1,21 @@
+﻿@page "/buttons"
+@page "/buttontest"     
+<!--birden fazla link olusturlabilir ikisindede çalışır-->
+<h3>Buttons</h3>
+<hr />
+<div class="form-group">
+    <div class="btn-toolbar">
+        <button type="button" class="btn btn-primary">
+            <i class="oi oi-home"/><!--blazor ile open iconic kutuphanesi gelir font awesome aktif etmek isin-->
+            Primary</button>
+        <button type="button" class="btn btn-secondary">
+            <i class="fa-solid fa-user fa-shake fa-xs"></i>
+            Secondary
+        </button>
+        <CustomEditComponent Text="Edit"/><!--button companentei-->
+ 
+    </div>
+</div>
+@code {
+
+}

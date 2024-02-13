@@ -1,0 +1,23 @@
+﻿@inherits BaseModalCompanent
+<div class="card-body">
+    <p>
+        @Message
+    </p>
+</div>
+<div class="row justify-content-center">
+    <div class="d-flex">
+        <div class="m-lg-auto p-2">
+            <button class="btn btn-light" @onclick="@ConfirmClicked">@OkText
+            </button>
+        </div>
+    </div>
+</div>
+@code {
+    public override Task SetParametersAsync(ParameterView parameters)
+    {
+        //Paremtre ataması yapılmasını sağlar
+        Message = parameters.GetValueOrDefault<String>("Message") ?? "Mesaj Yok";//String bir paremtre alınacığı ve Message anahatri ile alıncağı belirtilir ve dafault değrede atanır
+        OkText = "Ok";
+        return base.SetParametersAsync(parameters);
+    }
+}

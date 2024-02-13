@@ -1,0 +1,36 @@
+﻿@page "/"
+@using YemekSiparis.Utils;
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+<ButtonComponent icon="pencil" text="Modal Aç" color="primary" OnClick="OnClick" />
+
+<ButtonComponent icon="pencil" text="Modal Aç" color="primary" OnClick="OnClick2" />
+<ButtonComponent icon="pencil" text="Modal Aç" color="primary" OnClick="OnClick3" />
+<SurveyPrompt Title=@cevap />
+@code{
+    private string cevap = "";
+    [Inject]
+    ModalManager ModalManager { get; set; }//obje olusturulmu olusturur
+    public async Task  OnClick()
+    {
+        var cevapDurum=await ModalManager.ConfirmationAsync("Modal", "Beklemeli Mesaj");
+        if (cevapDurum) cevap = "Evet Tıklandi"; else cevap = "Hayir Tıklandi";
+    }
+    
+
+    public async Task OnClick2()
+    {
+        await ModalManager.ShowMessageAsync("Modal", "Mesajdır bu");
+      
+    }
+    public async Task OnClick3()
+    {
+        await ModalManager.ShowMessageAsync("Modal", "Beklemeli Mesaj", 5000);
+
+    }
+
+}
